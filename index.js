@@ -22,7 +22,7 @@ if (pmpt_aluno >= 1) {
         for (i = 0; i < pmpt_aluno; i++) {
             const nome_aluno_cad = prompt("Cadastre um aluno: ");
             const ra = gerar_ra()
-            alunos_cadastrados.push(nome_aluno_cad, ra, materias)
+            alunos_cadastrados.push({"Nome": nome_aluno_cad, "RA": ra,"Matérias" : materias})
         }
         return alunos_cadastrados
     }
