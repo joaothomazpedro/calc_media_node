@@ -1,35 +1,45 @@
 const prompt = require("prompt-sync")();
 
-let materias = ['Português','Matemática','História','Geografia','Ciências']
+const alunos = {};
 
-materias.forEach(materias => {
-    for (i = 0; i < 3; i++) {
-        const pmpt_notas = +prompt(`Insira a ${i}ª nota: `);
-    }    
-});
+const materias = ['Português', 'Matemática', 'História', 'Geografia', 'Ciências']
 
-/* Prompt para Cadastro de Alunos */
-const pmpt_aluno = +prompt("Quantos alunos serão cadastrados: ");
-
-function gerar_ra(){
+function gerar_ra() {
     const min_value = 100000;
     const max_value = 999999;
-    
+
     let ra_aluno = Math.floor(Math.random() * (max_value - min_value + 1)) + min_value;
     return ra_aluno
 }
 
-function cadastro_aluno(){
-    
-    for(i = 0; i < pmpt_aluno; i++)
-    {
-        let prp_aluno_cad = prompt("Cadastre um aluno: ");
-        alunos.push(prp_aluno_cad,gerar_ra())
+/* Prompt para Cadastro de Alunos */
+let pmpt_aluno = +prompt("Quantos alunos serão cadastrados: ");
+
+if (pmpt_aluno >= 1) {
+    function cadastro_aluno() {
+        let alunos_cadastrados = [];
+
+        for (i = 0; i < pmpt_aluno; i++) {
+            const nome_aluno_cad = prompt("Cadastre um aluno: ");
+            const ra = gerar_ra()
+            alunos_cadastrados.push(nome_aluno_cad, ra, materias)
+        }
+        return alunos_cadastrados
     }
 }
+else if(isNaN(pmpt_aluno)){
+    console.log("Digite um valor válido")
+    return
+}
+else {
+    console.log("Digite um valor válido")
+    return
+}
 
-const alunos = [
-    {nome_aluno:cadastro_aluno(), registro_aluno:gerar_ra(), materias_cadastradas: materias}
-]
+teste = cadastro_aluno()
+
+console.log(teste)
+
+
 
 
