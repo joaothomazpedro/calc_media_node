@@ -2,8 +2,13 @@
 const prompt = require("prompt-sync")();
 
 /* Inicialização de variáveis */
-const aluno = [];
+let aluno = [];
 const materia = [];
+
+novo_aluno = {
+    nome: aluno,
+    materias: materia
+};
 
 /* Começo da interface */
 while (true) {
@@ -17,7 +22,7 @@ while (true) {
         if (nome_aluno_cad != NaN || nome_aluno_cad != "") {
 
             aluno.push(nome_aluno_cad)
-
+            
             const materia_count = prompt("Deseja cadastrar o aluno em quantas matérias (Mínimo de três matérias): ")
 
             if (materia_count >= 3 && materia_count < 11) {
@@ -25,10 +30,13 @@ while (true) {
 
                     const materia_cad = prompt("Cadastre uma matéria: ")
 
-                    materia.push(materia_cad)
-
-                }
-
+                    materia.push(materia_cad)     
+                    
+                    console.log(novo_aluno)                                         
+                    
+                    
+                }   
+                novo_aluno = new Object();
             }
             /* Tratamento de erro: Quantidade de Matérias */
             else {
