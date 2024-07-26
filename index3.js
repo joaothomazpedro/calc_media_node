@@ -38,6 +38,8 @@ function materias_cad() {
         }
         if (materias_cad.length = i_materia) {
             bool_materia = true
+            calculo_media()
+
         }
     }
     else {
@@ -47,6 +49,17 @@ function materias_cad() {
 
     return materias
 }
+
+function calculo_media(){
+   console.log("insira as notas para o cálculos da médias por nota");
+    for(i = 0; i < materias_cad.length; i++){
+        for(j = 0, j < 3; j++;){
+            const nota = prompt(`Insira a ${[j]}ª nota`)
+            console.log("Deu tudo certo");
+            return nota
+        }
+    }
+};
 
 /* Inicio da Interface */
 while (true) {
@@ -60,8 +73,10 @@ while (true) {
             resulta_materias = materias_cad()
 
             if (bool_materia == true) {
-                ficha_aluno = new Object({ "Nome": result_aluno, "Matérias": resulta_materias });
-                console.log(ficha_aluno);
+                
+                
+
+                
             }
         }
         else {
